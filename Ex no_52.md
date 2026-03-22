@@ -1,74 +1,81 @@
-# EX 53 C program to remove duplicates in an array.
-## DATE:
+## Task
+
+# Write a function int max_of_four(int a, int b, int c, int d) which reads four arguments and returns the greatest of them.
+
+## Note
+
+There is not built in max function in C. Code that will be reused is often put in a separate function, e.g. int max(x, y) that returns the greater of the two values.
+
+## Input Format
+
+Input will contain four integers - a,b,c,d , one on each line.
+
+## Output Format
+
+Print the greatest of the four integers.
+Note: I/O will be automatically handled.
+
+
+# EX 52 C program to write a function int max_of_four(int a, int b, int c, int d) which reads four arguments and returns the greatest of them.
+## DATE: 
 ## AIM:
-To write a C program to remove duplicates in an array.
+To write a function int max_of_four(int a, int b, int c, int d) which reads four arguments and returns the greatest of them.
 
 ## Algorithm
-1.Define a function remove_duplicates() to remove duplicate elements from an array.
+1.Define a function max_of_four() that takes four integers as arguments.
 
-2.Iterate through each element in the array and check if it already exists in the result array.
+2.Use a series of comparisons to find the greatest among the four integers.
 
-3.If it doesn't exist, add it to the result array.
+3.First, compare a and b to find the maximum of the two.
 
-4.Return the length of the array after removing duplicates.
+4.Then compare the result with c and d to get the maximum of all four.
 
-5.Print the updated array. 
+5.Return the greatest value.
+
+
 
 ## Program:
 ```
 /*
-C program to remove duplicates in an array
+C program to reverse a string.
 */
-
 #include <stdio.h>
 
-void remove_duplicates(int arr[], int *size)
+int max_of_four(int a, int b, int c, int d)
 {
-    int i, j, k;
+    int max = a;
 
-    for(i = 0; i < *size; i++)
-    {
-        for(j = i + 1; j < *size; j++)
-        {
-            if(arr[i] == arr[j])
-            {
-                for(k = j; k < *size - 1; k++)
-                    arr[k] = arr[k + 1];
-                (*size)--; // Decrease the size of the array
-                j--;
-            }
-        }
-    }
-}
+    if(b > max)
+        max = b;
+    if(c > max)
+        max = c;
+    if(d > max)
+        max = d;
 
-void display(int arr[], int size)
-{
-    for(int i = 0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
+    return max;
 }
 
 int main()
 {
-    int arr[] = {1, 2, 3, 2, 4, 3, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int a, b, c, d;
 
-    printf("Original array: ");
-    display(arr, size);
+    // Read four integers
+    scanf("%d", &a);
+    scanf("%d", &b);
+    scanf("%d", &c);
+    scanf("%d", &d);
 
-    remove_duplicates(arr, &size);
-
-    printf("Array after removing duplicates: ");
-    display(arr, size);
+    // Output the greatest of the four integers
+    printf("%d\n", max_of_four(a, b, c, d));
 
     return 0;
 }
-
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/543856cc-9abf-4150-a4ad-9fb2903a01db)
+![image](https://github.com/user-attachments/assets/82659b1c-8746-4323-8350-52b11d09986e)
+
 
 ## Result:
 Thus the program was executed and the output was verified successfully.
